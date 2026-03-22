@@ -1,0 +1,49 @@
+{% extends 'data_annotater/base.html' %}
+
+{% block content %}
+    <h1 style="justify-content: center; display: flex;">Data Dashboard</h1>
+
+    <div style="margin-bottom: 2em; justify-content: center; display: flex;">
+        <!-- Toggle to display rows that have been annotated. -->
+        {% if isFiltered == 'true' %}
+            <a href="?isFiltered=false"> Current View: Filtered (Toggle View to Show All Records)</a>
+        {% else %}
+            <a href="?isFiltered=true"> Current View: All Records (Toggle View to Show Records Awaiting Processing)</a>
+        {% endif %}
+    </div>
+    
+    {% for record in records %}
+        <a href="{% url 'annotate' record.pk %}">
+            <div class="recordBox">
+        
+                <p> Merchant: {{ record.merchant }}</p>
+                <p> SKU: {{ record.sku }}</p>
+                <p> Country: {{ record.country }}</p>
+                <p> Retailer:</p>
+                    {% if not record.retailer %}
+                        <span style="color: black; font-weight: bold;">AWAITING PROCESSING</span>
+                    {% else %}
+                        {{ record.retailer }}
+                    {% endif %}
+                </p>
+                <p> Segment:
+                    {% if not record.segment %}
+                        <span style="color: black; font-weight: bold;">AWAITING PROCESSING</span>
+                    {% else %}
+                        {{ record.segment }}
+                    {% endif %}
+                </p>
+            </div>
+        </a>
+    {% endfor %}
+    
+    <!-- Wipe DB button. Used to re-test app. WIPES ALL CHANGES MADE TO CURRENT DB -->
+    <div style="justify-content: center; align-items:center; display:flex; text-align: center;">
+        <form method="POST" style="text-align: center;">
+            {% csrf_token %}
+            <button type="submit">Wipe Database</button>
+            <p>WARNING: The button above is used for testing purposes. Pressing will result in all changes and data being wiped</p>
+        </form>
+    </div>
+
+{% endblock %}

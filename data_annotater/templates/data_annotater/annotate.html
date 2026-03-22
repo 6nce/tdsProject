@@ -1,0 +1,11 @@
+{% extends 'data_annotater/base.html' %}
+
+{% block content%}
+    <h1> Annotate Record </h1>
+    <form method="POST">
+        <!-- Required on all forms, prevents cross site attacks -->
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Record</button>
+    </form>
+{% endblock %}

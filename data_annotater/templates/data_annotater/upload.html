@@ -1,0 +1,11 @@
+{% extends 'data_annotater/base.html' %}
+
+{% block content%}
+    <h1> CSV Uploader </h1>
+    <form method="POST" enctype="multipart/form-data">
+        <!-- Required on all forms, prevents cross site attacks -->
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload CSV</button>
+    </form>
+{% endblock %}

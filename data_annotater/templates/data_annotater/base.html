@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'data_annotater/css/styles.css' %}">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title%} TDS Gift Cards Data Annotater {% endblock %}</title>
+</head>
+<body>
+    <nav style="justify-content: center; display: flex;">
+        <a href ="/" style="margin-right: 2em; ">Step 1: Upload CSV </a>
+        <a href ="/dashboard/" style="margin-right: 2em;">Step 2: Review Dashboard </a>
+        <a href ="/dashboard/" style="margin-right: 2em;">Step 3: Annotate Store Record </a>
+        <a href ="/dashboard/" style="margin-right: 2em;">Step 4: Confirm Successful Changes</a>
+
+
+    </nav>
+
+    <!-- Basic Template Inheritance   -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+
+
+</body>
+</html>
