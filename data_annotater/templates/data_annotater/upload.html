@@ -1,11 +1,13 @@
 {% extends 'data_annotater/base.html' %}
 
 {% block content%}
-    <h1> CSV Uploader </h1>
-    <form method="POST" enctype="multipart/form-data">
-        <!-- Required on all forms, prevents cross site attacks -->
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Upload CSV</button>
-    </form>
+    <div style="display:flex; flex-direction: column ; justify-content: center; align-items: center; ">
+        <h1> CSV Uploader </h1>
+        <form method="POST" enctype="multipart/form-data" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <!-- Required on all forms, prevents cross site attacks -->
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" >Upload CSV</button>
+        </form>
+    </div>
 {% endblock %}
