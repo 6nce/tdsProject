@@ -46,10 +46,6 @@ Create data_annotater that allows user to clean data by manually annotating it.
 - Styling
     - Major GUI overhaul using React frontend for more dynamic UI
 - If dealing with Large Datasets, utilize a dict and add SKUs that already exists. Separate dicts for each available country. Key: SKU Value: Merchant name.
-<<<<<<< HEAD
-    - If dict contains SKU during lookup, skip database insert. else, insert to db and add to dict. This will improve processing times. Avoids hitting database for each SKU.
-=======
     - If dict contains SKU during lookup, skip database insert. 
     - else, insert to db and add to dict. 
     This will improve processing times. Avoids hitting database for each SKU.
->>>>>>> 3648135 (style: improve layout on upload template)
